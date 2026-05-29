@@ -2,6 +2,8 @@
 
 A Python pipeline that downloads Anthropic's HH-RLHF dataset from Hugging Face, filters out low-quality preference pairs using configurable heuristics, and reformats the data into training-ready JSONL compatible with TRL's RewardTrainer and SFTTrainer. Built to make every preprocessing decision visible and auditable — this is a learning tool for understanding how raw human preference data becomes model training data.
 
+> **Part of a two-repo project.** This repo handles the *data pipeline* side of RLHF. The companion repo [rlhf-annotator](https://github.com/rxue-dev/rlhf-annotator) is a full-stack annotation interface for collecting pairwise human preferences — the same kind of data this pipeline processes.
+
 ## Pipeline Diagram
 
 ```
@@ -74,6 +76,15 @@ Each line in the output JSONL:
   "rejected_length": 98
 }
 ```
+
+## Testing
+
+```bash
+pip install pytest
+python -m pytest tests/ -v
+```
+
+Tests cover each filtering heuristic independently — duplicates, length thresholds, junk patterns, toxicity detection — without needing to download any data.
 
 ## Key Design Decisions
 
