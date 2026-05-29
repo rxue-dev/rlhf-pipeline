@@ -75,6 +75,10 @@ Each line in the output JSONL:
 }
 ```
 
+## Output Results
+<img width="535" height="971" alt="Screenshot 2026-05-29 at 3 00 13 PM" src="https://github.com/user-attachments/assets/8bf659b9-b999-48d8-a0b7-f9eab057f851" />
+
+
 ## Key Design Decisions
 
 ### Why these specific filter heuristics?
